@@ -1,3 +1,4 @@
+import 'package:apps/data/notifiers.dart';
 import 'package:apps/views/widget_tree.dart';
 import 'package:flutter/material.dart';
 
@@ -16,12 +17,17 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme:ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal, brightness: Brightness.dark),
-      ),
+    return ValueListenableBuilder(valueListenable: isDarkModeNotifier,
+        builder: (context, isDarkMode, child) {
+          return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              theme:ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal,
+                brightness: isDarkMode ? Brightness.dark : Brightness.light,
+              ),
+              ),
 
-      home: WidgetTree()
-    );
+              home: WidgetTree()
+          );
+        },);
   }
 }
