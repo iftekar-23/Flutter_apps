@@ -1,4 +1,5 @@
 import 'package:apps/data/notifiers.dart';
+import 'package:apps/views/pages/welcome_page.dart';
 import 'package:apps/views/widget_tree.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +27,7 @@ class _MyAppState extends State<MyApp> {
               ),
               ),
 
-              home: WidgetTree()
+              home: WelcomePage()
           );
         },);
   }

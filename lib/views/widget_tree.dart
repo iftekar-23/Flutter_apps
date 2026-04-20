@@ -2,6 +2,7 @@
 import 'package:apps/data/notifiers.dart';
 import 'package:apps/views/pages/home_page.dart';
 import 'package:apps/views/pages/profile_page.dart';
+import 'package:apps/views/pages/setting_page.dart';
 import 'package:apps/views/widgets/navbar_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +27,14 @@ class WidgetTree extends StatelessWidget {
                   return Icon(
                     isDarkkMode ? Icons.light_mode : Icons.dark_mode
                   );
-                },))
+                },)
+            ),
+            IconButton(onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return SettingPage(title: "Setting Page",);
+              },)
+              );
+            }, icon: Icon(Icons.settings))
           ],
         ),
 
